@@ -43,7 +43,10 @@ let selectMonth = document.getElementById("month");
 
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
+let selectedDate = today.getDate()+" "+months[today.getMonth()]+" "+today.getFullYear();
+let monthYear=document.getElementById("form-monthYear");
 let monthAndYear = document.getElementById("monthAndYear");
+let day=document.getElementById("form-day");
 showCalendar(currentMonth, currentYear);
 
 
@@ -77,6 +80,8 @@ function showCalendar(month, year) {
 
     // filing data about month and in the page via DOM.
     monthAndYear.innerHTML = months[month] + " " + year;
+    monthYear.innerHTML =months[month] + " " + year;
+    day.innerHTML =today.getDate();
     selectYear.value = year;
     selectMonth.value = month;
 
@@ -119,13 +124,48 @@ function showCalendar(month, year) {
 
 $("#calendar-body").on("click","button",function(){
     event.preventDefault();
-    let day = $(this).text();
-    console.log(day);
-    console.log(selectYear.value);
-    console.log(parseInt(selectMonth.value)+1);
-   
+    let newDay = $(this).text();
+    day.innerHTML=newDay;
+    populateActivities();
+})
+
+//getting new activities and saving to db
+$("#form-submit").on("click",function(){
+    event.preventDefault();
+    var selectedDay=$("#form-day").text();
+    var monthYear=$("#form-monthYear").text();
+    selectedDate=selectedDay+" "+monthYear;
+    var activity=$("#form-activity").val();
+    var calories=$("#form-calories").val();
+
+   $.post("add", {activity: activity, calories: calories, timestamp: selectedDate }, function(data){
+    console.log(data);
+   })
+   location.reload();
 })
 
 
 
+//fetch all activities and display
+function populateActivities(){
+    var timestamp=day.innerHTML+" "+monthYear.innerHTML;
+    $.get("activities", { date: timestamp }, function(result){
+        var parent = $("#activity-list");
+        parent.empty();
+
+        if(result.length==0){
+            parent.text("No activities found on this day");
+        }else{
+       for(var i=0; i<result.length; i++){
+        var line1 = $("<li></li>").text("Activity: " + result[i].name);
+        var line2 = $("<li></li>").text("Calories: " + result[i].calories)
+        var line3=$("<br>");
+        parent.prepend(line1, line2, line3);
+       }
+    }
+       
+    });
+
+}
+populateActivities();
 

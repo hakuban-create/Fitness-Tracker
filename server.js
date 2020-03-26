@@ -6,6 +6,7 @@ var PORT = process.env.PORT || 8082;
 /** Mongoose connection */
 const mongoose = require("mongoose");
 mongoose.connect('mongodb://localhost:27017/fitness');
+const Activity = require("./models/Fitness");
 
 var app = express();
 
@@ -19,12 +20,24 @@ app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
+
+//Adding new activity
 app.post("/add", function(req, res) {
-    console.log("request came");
-    console.log(req.body);
+  var data=req.body;
+    var newEntry = new Activity({ name: data.activity, calories: data.calories, timestamp: data.timestamp });
+    newEntry.save(function (err, entry) {
+      if (err) return console.error(err);
+      console.log(entry);
+        });
 });
 
-
+//getting activities for requested date
+app.get("/activities", function(req, res){
+Activity.find({timestamp: req.query.date}, function(err, data) {
+   if (err)res.send(err);
+   res.json(data);
+  })
+})
 
 
 app.listen(PORT, function() {
