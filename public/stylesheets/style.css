@@ -38,6 +38,9 @@ a {
 .warning_danger{
     background-color:#ef737f;
 }
+.modal-title{
+  font-size: 30px;
+}
 .modal-body{
     margin: 30px 25px 50px 25px;
 }
@@ -62,6 +65,7 @@ a {
 table button{
   border: none;
   color: #16a737;
+  background-color: white;
 }
 .card-header{
   text-align: center;
@@ -88,8 +92,8 @@ border:1px solid blue;
 #date-header{
   margin-top: 10px;
   margin-bottom: 15px;
-  font-size: 30px;
-  color: #007bff;
+  font-size: 35px;
+  color: #dc3545;
   text-align: center;
 }
 
@@ -100,7 +104,7 @@ border:1px solid blue;
   font-size: 30px;
 }
 #total-cal{
-  color: red;
+  color: #dc3545;
 }
 
 #activity-list{
@@ -108,7 +112,7 @@ border:1px solid blue;
 }
 .cal-count{
   font-size: 15px;
-  color: red;
+  color: #dc3545;
 }
 
 .list-item{
