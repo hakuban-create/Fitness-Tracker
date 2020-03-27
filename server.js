@@ -5,7 +5,8 @@ var PORT = process.env.PORT || 8082;
 
 /** Mongoose connection */
 const mongoose = require("mongoose");
-mongoose.connect('mongodb://localhost:27017/fitness');
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fitness", { useNewUrlParser: true });
+
 const Activity = require("./models/Fitness");
 
 var app = express();
