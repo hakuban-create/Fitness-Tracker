@@ -27,7 +27,7 @@ app.post("/add", function(req, res) {
     var newEntry = new Activity({ name: data.activity, calories: data.calories, timestamp: data.timestamp });
     newEntry.save(function (err, entry) {
       if (err) return console.error(err);
-      console.log(entry);
+      console.log("Successfully saved the activity");
         });
 });
 

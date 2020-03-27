@@ -36,8 +36,11 @@
 <div class="row">
   <div class="col-md-6">
   <div>
-      <div class="card">
-          <h3 class="card-header" id="monthAndYear"></h3>
+      <div class="card shadow">
+          <div id="date-header">
+                <span id="form-day"></span>
+                <span id="monthAndYear"></span>
+          </div>
           <table class="table table-bordered table-responsive-sm" id="calendar">
               <thead>
               <tr>
@@ -130,19 +133,20 @@
   </div>
 </div>
 <div class="col-md-6">
+
+    <div id="calories-header">
+            <span>Total Calories: <span id="total-cal">0</span></span>
+    </div>
+
+
 <div id="activity-form">
         <form>
-            <div id="timestamp">
-            <span  id="form-day" name="day" type="text"></span>
-            <span id="form-monthYear" name="monthYear"></span>
-             </div>
             <input id="form-activity" type="text" class="form-control" placeholder="Enter Activity"><br>
             <input id="form-calories" type="number" class="form-control" placeholder="Enter Calories"><br>
             <input id="form-submit" type="submit" value="Enter" class="btn btn-primary"></input>
         </form>
       </div> 
       <div>
-      <h3 class="text-center">Activity list</h3>
       <ul id="activity-list" class="list-group mb-5">
       </ul>
     </div>
@@ -226,11 +230,9 @@
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
-  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-  crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
-  integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-  crossorigin="anonymous"></script>
-  <script src="js/script.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+    integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

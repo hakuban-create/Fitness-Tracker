@@ -44,7 +44,6 @@ let selectMonth = document.getElementById("month");
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 let selectedDate = today.getDate()+" "+months[today.getMonth()]+" "+today.getFullYear();
-let monthYear=document.getElementById("form-monthYear");
 let monthAndYear = document.getElementById("monthAndYear");
 let day=document.getElementById("form-day");
 showCalendar(currentMonth, currentYear);
@@ -54,12 +53,14 @@ function next() {
     currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
     currentMonth = (currentMonth + 1) % 12;
     showCalendar(currentMonth, currentYear);
+    populateActivities();
 }
 
 function previous() {
     currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
     currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
     showCalendar(currentMonth, currentYear);
+    populateActivities();
 }
 
 function jump() {
@@ -80,8 +81,7 @@ function showCalendar(month, year) {
 
     // filing data about month and in the page via DOM.
     monthAndYear.innerHTML = months[month] + " " + year;
-    monthYear.innerHTML =months[month] + " " + year;
-    day.innerHTML =today.getDate();
+    day.innerHTML ="01";
     selectYear.value = year;
     selectMonth.value = month;
 
@@ -105,11 +105,11 @@ function showCalendar(month, year) {
                 break;
             }
             else {
-                let cell = document.createElement("td");
+                var cell = document.createElement("td");
                 let a2=document.createElement("button");
                 let cellText = document.createTextNode(date);
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                    cell.classList.add("bg-warning");
+                    cell.classList.add("bg-success");
                 } // color today's date
                 cell.appendChild(a2);
                 a2.appendChild(cellText);
@@ -122,6 +122,8 @@ function showCalendar(month, year) {
 
 }
 
+day.innerHTML =today.getDate();
+
 $("#calendar-body").on("click","button",function(){
     event.preventDefault();
     let newDay = $(this).text();
@@ -133,23 +135,28 @@ $("#calendar-body").on("click","button",function(){
 $("#form-submit").on("click",function(){
     event.preventDefault();
     var selectedDay=$("#form-day").text();
-    var monthYear=$("#form-monthYear").text();
+    var monthYear=$("#monthAndYear").text();
     selectedDate=selectedDay+" "+monthYear;
-    var activity=$("#form-activity").val();
-    var calories=$("#form-calories").val();
+    var activity=$("#form-activity");
+    var calories=$("#form-calories");
+    console.log(activity.val()+" "+calories.val()+" "+selectedDate);
 
-   $.post("add", {activity: activity, calories: calories, timestamp: selectedDate }, function(data){
+   $.post("add", {activity: activity.val(), calories: calories.val(), timestamp: selectedDate }, function(data){
     console.log(data);
    })
-   location.reload();
+   calories.val("");
+   activity.val("");
+   populateActivities();
+
 })
 
 
 
 //fetch all activities and display
 function populateActivities(){
-    var timestamp=day.innerHTML+" "+monthYear.innerHTML;
+    var timestamp=day.innerHTML+" "+monthAndYear.innerHTML;
     $.get("activities", { date: timestamp }, function(result){
+        var totalCal=0;
         var parent = $("#activity-list");
         parent.empty();
 
@@ -157,12 +164,15 @@ function populateActivities(){
             parent.text("No activities found on this day");
         }else{
        for(var i=0; i<result.length; i++){
-        var line1 = $("<li></li>").text("Activity: " + result[i].name);
-        var line2 = $("<li></li>").text("Calories: " + result[i].calories)
-        var line3=$("<br>");
-        parent.prepend(line1, line2, line3);
+        totalCal+= parseInt(result[i].calories);
+        var parentDiv=$("<div></div>").attr("class","list-item rounded shadow-sm");
+        var line1 = $("<div></div>").attr("class","activity-name").text(result[i].name);
+        var line2 = $("<div></div>").attr("class", "cal-count").text(result[i].calories+" cal")
+        parentDiv.append(line1, line2);
+        parent.prepend(parentDiv);
        }
     }
+    $("#total-cal").text(totalCal);
        
     });
 

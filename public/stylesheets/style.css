@@ -3,7 +3,8 @@ body {
   padding: 0px, 20px, 0px, 50px;
 }
 .body-container{
-  margin: 50px;
+  padding: 80px 55px;
+  background-color: #fdf5e3;
 }
 
 a {
@@ -23,7 +24,7 @@ a {
   margin-left: 10px;
 }
 .hero{
-  background-color: #e3f2fd;
+  background-color: #d7f5de;
   height: 180px;
   padding-top:20px;
 }
@@ -81,4 +82,40 @@ border:1px solid blue;
 
  #activity-form{
    width: 400px;
+   margin-bottom: 40px;
  }
+
+#date-header{
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 30px;
+  color: #007bff;
+  text-align: center;
+}
+
+#calories-header{
+  margin-top: 15px;
+  margin-bottom: 20px;
+  color: #007bff;
+  font-size: 30px;
+}
+#total-cal{
+  color: red;
+}
+
+#activity-list{
+  font-size: 20px;
+}
+.cal-count{
+  font-size: 15px;
+  color: red;
+}
+
+.list-item{
+  width: 400px;
+    border: 1px solid lightgray;
+    margin-bottom: 15px;
+    padding: 4px 20px;
+    background-color: #f3f3b870;
+    color: #3682d4;
+}
