@@ -128,3 +128,4 @@ table button{
     color: #3682d4;
 }
 
+#calendar-body button:hover { background-color: yellow; }
