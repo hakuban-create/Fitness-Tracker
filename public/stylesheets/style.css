@@ -54,7 +54,7 @@ a {
   margin-left: 25%;
 }
 #your-bmi span{
-  font-size: 20px;
+  font-size: 100%;
 }
 #result_progress{
   background-color:#f8f9fa;
@@ -73,6 +73,7 @@ table button{
 }
 .card{
   background-color: white;
+  margin-bottom: 20px;
 }
 .card-header{
   text-align: center;
@@ -85,7 +86,7 @@ table button{
 }
 
  #activity-form{
-   width: 400px;
+   width: 90%;
    margin-bottom: 40px;
  }
 
@@ -120,7 +121,7 @@ table button{
 }
 
 .list-item{
-  width: 400px;
+  width: 90%;
     border: 1px solid lightgray;
     margin-bottom: 15px;
     padding: 4px 20px;
