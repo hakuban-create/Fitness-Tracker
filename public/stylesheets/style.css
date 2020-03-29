@@ -48,6 +48,7 @@ a {
 
 #progress-value{
   font-size: 25px;
+  color: #dc3545;
 }
 
 .warning_danger{
