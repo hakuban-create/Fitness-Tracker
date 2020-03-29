@@ -8,6 +8,7 @@ body {
 }
 .body-container{
   padding: 50px 55px;
+  margin-left: 10%;
 
 }
 .bg-primary{
@@ -42,8 +43,8 @@ a {
 }
 
 #total-cal-progress{
-  width: 78%;
-  margin-left: 4%;
+  width: 69%;
+  margin-left: 14%;
 }
 
 #progress-value{
