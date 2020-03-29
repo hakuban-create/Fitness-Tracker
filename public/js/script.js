@@ -172,6 +172,10 @@ function populateActivities(){
         parent.prepend(parentDiv);
        }
     }
+    var percent=totalCal*100/1000;
+    var percent=percent+"%";
+    $("#progress-value").css("width",percent).text(percent);
+
     $("#total-cal").text(totalCal);
        
     });

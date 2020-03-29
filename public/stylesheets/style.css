@@ -7,7 +7,7 @@ body {
   background-attachment: fixed;
 }
 .body-container{
-  padding: 80px 55px;
+  padding: 50px 55px;
 
 }
 .bg-primary{
@@ -40,6 +40,16 @@ a {
   margin-top: 50px;
   margin-left: 15px;
 }
+
+#total-cal-progress{
+  width: 78%;
+  margin-left: 4%;
+}
+
+#progress-value{
+  font-size: 25px;
+}
+
 .warning_danger{
     background-color:#ef737f;
 }
