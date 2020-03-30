@@ -6,103 +6,102 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
-.body-container{
+.body-container {
   padding: 50px 55px;
   margin-left: 10%;
-
 }
-.bg-primary{
+.bg-primary {
   padding: 10px 70px !important;
 }
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
-#title{
-  color:white;
+#title {
+  color: white;
 }
 
 /* BMI style */
 
-.button{
+.button {
   color: black;
 }
-.bmi-form{
+.bmi-form {
   width: 200px;
   margin-left: 10px;
 }
-.hero{
+.hero {
   height: 180px;
-  padding-top:20px;
+  padding-top: 20px;
 }
 
-.progress{
+.progress {
   width: 95%;
   height: 50px;
   margin-top: 50px;
   margin-left: 15px;
 }
 
-#total-cal-progress{
+#total-cal-progress {
   width: 69%;
   margin-left: 14%;
 }
 
-#progress-value{
+#progress-value {
   font-size: 25px;
   color: #dc3545;
 }
 
-.warning_danger{
-    background-color:#ef737f;
+.warning_danger {
+  background-color: #ef737f;
 }
-.modal-title{
+.modal-title {
   font-size: 30px;
 }
-.modal-body{
-    margin: 30px 25px 50px 25px;
+.modal-body {
+  margin: 30px 25px 50px 25px;
 }
-#your-bmi{
+#your-bmi {
   width: 50%;
   margin-left: 25%;
 }
-#your-bmi span{
+#your-bmi span {
   font-size: 100%;
 }
-#result_progress{
-  background-color:#f8f9fa;
+#result_progress {
+  background-color: #f8f9fa;
 }
 
-#bmi_btn{
-  margin-left:61%;
+#bmi_btn {
+  margin-left: 61%;
 }
 
 /* Calender style */
 
-table button{
+table button {
   border: none;
   color: #16a737;
   background-color: white;
 }
-.card{
+.card {
   background-color: white;
   margin-bottom: 20px;
 }
-.card-header{
+.card-header {
   text-align: center;
 }
-.lead{
-  color:#007bff;
+.lead {
+  color: #007bff;
 }
-.card{
+.card {
   width: 400px;
 }
 
- #activity-form{
-   width: 90%;
-   margin-bottom: 40px;
- }
+#activity-form {
+  width: 90%;
+  margin-bottom: 40px;
+}
 
-#date-header{
+#date-header {
   margin-top: 10px;
   margin-bottom: 15px;
   font-size: 35px;
@@ -110,35 +109,37 @@ table button{
   text-align: center;
 }
 
-#activity-container{
+#activity-container {
   background-color: white;
-    padding-left: 30px;
+  padding-left: 30px;
 }
-#calories-header{
+#calories-header {
   margin-top: 15px;
   margin-bottom: 20px;
   color: #007bff;
   font-size: 30px;
 }
-#total-cal{
+#total-cal {
   color: #dc3545;
 }
 
-#activity-list{
+#activity-list {
   font-size: 20px;
 }
-.cal-count{
+.cal-count {
   font-size: 15px;
   color: #dc3545;
 }
 
-.list-item{
+.list-item {
   width: 90%;
-    border: 1px solid lightgray;
-    margin-bottom: 15px;
-    padding: 4px 20px;
-    background-color: #f3f3b870;
-    color: #3682d4;
+  border: 1px solid lightgray;
+  margin-bottom: 15px;
+  padding: 4px 20px;
+  background-color: #f3f3b870;
+  color: #3682d4;
 }
 
-#calendar-body button:hover { background-color: yellow; }
+#calendar-body button:hover {
+  background-color: yellow;
+}
