@@ -1,4 +1,3 @@
-$( document ).ready(function() {
 /* * * * * BMI calculation  * * * * */
 
 //listening to the BMI button click
@@ -206,5 +205,3 @@ function populateActivities() {
   });
 }
 populateActivities();
-
-})
